@@ -1,1 +1,21 @@
+
 <h1>Main page</h1>
+<div class="row mb-3">
+	<% @teas.each do |tea| %>
+    
+    <div class="col-md-4 themed-grid-col" >
+    	<div class="container-md themed-container"><%= tea.title %></div>
+    	<div class="container-md themed-container"><%= tea.weigth %> г.</div>
+    	<div class="container-md themed-container">
+    		<div class="text-center">
+			  <img src="<%= tea.path_to_image %>" class="rounded mx-auto d-block" alt="Assam cvetok vesni v chashe" style="height: 100%; width: 100%;">
+			</div>
+		</div>
+    	<div class="container-md themed-container"><%= tea.description %></div>
+    	<div class="container-md themed-container"><%= tea.price %> руб.</div>
+    </div>
+	
+	<% end %>
+
+</div>
+

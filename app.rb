@@ -9,6 +9,10 @@ set :database, { adapter: 'sqlite3', database: 'shop.db' }
 class Product < ActiveRecord::Base
 end
 
+before do
+	@teas = Product.all
+end
+
 get '/' do
 	erb :index
 end
