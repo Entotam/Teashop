@@ -1,0 +1,12 @@
+.div-products {
+	text-align: center;
+}
+
+.div-products.tea-image {
+	height: 100%;
+	width: 100%;
+}
+
+.heading-top {
+	margin-bottom: 150px;
+}

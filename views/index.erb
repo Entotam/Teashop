@@ -1,18 +1,31 @@
+<style type="text/css">
+	.head-top {
+		margin-bottom: 50px;
+	}
 
-<h1>Main page</h1>
+	.product {
+		margin: 10px;
+	}
+</style>
+
+<div>
+	<h1 class="head-top">Main page</h1>
+</div>
+
 <div class="row mb-3">
 	<% @teas.each do |tea| %>
     
-    <div class="col-md-4 themed-grid-col" >
-    	<div class="container-md themed-container"><%= tea.title %></div>
-    	<div class="container-md themed-container"><%= tea.weigth %> г.</div>
-    	<div class="container-md themed-container">
+    <div class="col-md-4 themed-grid-col div-products">
+    	<div class="container-md themed-container product"><%= tea.title %></div>
+    	<div class="container-md themed-container product"><%= tea.weigth %> г.</div>
+    	<div class="container-md themed-container product">
     		<div class="text-center">
-			  <img src="<%= tea.path_to_image %>" class="rounded mx-auto d-block" alt="Assam cvetok vesni v chashe" style="height: 100%; width: 100%;">
+			  <img src="<%= tea.path_to_image %>" class="rounded mx-auto d-block tea-image" alt="Assam cvetok vesni v chashe" style="height: 100%; width: 100%;">
 			</div>
 		</div>
-    	<div class="container-md themed-container"><%= tea.description %></div>
-    	<div class="container-md themed-container"><%= tea.price %> руб.</div>
+    	<div class="container-md themed-container product"><%= tea.description %></div>
+    	<div class="container-md themed-container product"><%= tea.price %> руб.</div>
+    	<button type="button" class="btn btn-success">В корзину</button>
     </div>
 	
 	<% end %>
