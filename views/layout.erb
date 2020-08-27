@@ -20,7 +20,11 @@
     	<!-- Include all compiled plugins (below), or include individual files as needed -->
     	<!-- <script src="/vendor/bootstrap/js/bootstrap.min.js"></script> -->
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    	<script src="/script.js"></script>
+    	<script type="text/javascript" src="/script.js"></script>
+    	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <!-- <script src="/vendor/jquery-1.9.1.min.js"></script> -->
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <!-- <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>			 -->
 	</head>
 	<body>
 		<div class="container">
@@ -40,7 +44,7 @@
 			        <a class="nav-link" href="/contacts">Контакты</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="/booking">Список записавшихся</a>
+			        <a class="nav-link" href="/cart">Корзина</a>
 			      </li>
 			      <!-- <li class="nav-item">
 			        <a class="nav-link" href="#">Pricing</a>
@@ -61,10 +65,34 @@
 
 	</div>
 
+	<script type="text/javascript">
+		function add_to_cart(id) {
+			key = 'product_' + id;
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/vendor/jquery-1.9.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+			var x = window.localStorage.getItem(key);
+			x = x * 1 + 1;
+			window.localStorage.setItem(key, x);
+		}
+
+		function cart_get_number_of_items()
+		{
+		  var cnt = 0;
+
+		  for (var i = 0; i < window.localStorage.length; i++)
+		  {
+		    var key = window.localStorage.key(i); // получаем ключ
+		    var value = window.localStorage.getItem(key); // получаем значение
+
+		    if(key.indexOf('product_') == 0)
+		    {
+		      cnt = cnt + value * 1;
+		    }
+		  }
+
+		  return cnt;
+		}
+
+	</script>
+
   </body>
 </html>

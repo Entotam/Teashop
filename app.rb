@@ -16,3 +16,7 @@ end
 get '/' do
 	erb :index
 end
+
+get '/cart' do
+	erb :cart
+end
