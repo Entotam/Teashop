@@ -59,7 +59,7 @@
 				  <li class="nav-item">
 				  	<form action="/cart" method="POST">
 				  		<input id="orders_input" type="hidden" name="orders">
-				    	<input type="submit" name="cart" class="btn btn-success" value="Cart(...)">
+				    	<input id="orders_button" type="submit" name="cart" class="btn btn-success">
 				    </form>
 				  </li>
 				</ul>
@@ -84,6 +84,7 @@
 			window.localStorage.setItem(key, x);
 
 			update_orders();
+			update_orders_cart()
 		}
 
 		function cart_get_number_of_items()
@@ -122,6 +123,11 @@
 		function update_orders() {
 			var orders = cart_get_orders();
 			$('#orders_input').val(orders);
+		}
+
+		function update_orders_cart() {
+			var text = 'Корзина (' + cart_get_number_of_items() + ')';
+			$('#orders_button').val(text);
 		}
 
 	</script>
